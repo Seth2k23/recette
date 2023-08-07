@@ -80,4 +80,13 @@ class Ingredient
 
         return $this;
     }
+
+    /**à cause de la clé secondaire entre lui et Recipe, 
+     * ça n'affiche pas, comme cest public
+     */
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

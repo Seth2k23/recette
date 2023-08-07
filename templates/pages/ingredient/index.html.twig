@@ -7,7 +7,7 @@
   {% if not ingredients is same as([]) %}
   <h2>Mes ingrédients</h2>
 
-  <a href="{{ path('ingredient.new') }}" class="btn btn-secondary">Créer un ingrédient</a>
+  <a href="{{ path('ingredient.new') }}" class="btn btn-warning">Créer un ingrédient</a>
     
   {%  for message in app.flashes('success') %}
         <div class=" alert alert-success mt-4 text-center">

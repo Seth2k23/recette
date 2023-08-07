@@ -14,7 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 class IngredientController extends AbstractController
-{ #[Route('/ingredient', name: 'ingredient.index', methods:['GET'])]
+{
+     #[Route('/ingredient', name: 'ingredient.index', methods:['GET'])]
     public function index(IngredientRepository $repository, PaginatorInterface $paginator, Request $request): Response
     {   
         /**
@@ -29,6 +30,10 @@ class IngredientController extends AbstractController
             'ingredients' =>  $ingredients
         ]);
     }
+
+    /**
+     * Ajout d'un nouveau ingrédient
+     */
     #[Route('/ingredient/nouveau', name: 'ingredient.new')]
     public function new( Request $request, EntityManagerInterface $manager): Response {
 
@@ -85,6 +90,9 @@ class IngredientController extends AbstractController
         'form' => $form->createView()
     ]);
 }
+/**
+ * Suppression d'un nouveau d'un grédient
+ */
 #[ROute('/ingredient/suppression/{id}', name: 'ingredient.delete', methods: ['GET'])]
  public function delete(IngredientRepository $repository, int $id, EntityManagerInterface $manager) : Response
  {
@@ -100,4 +108,6 @@ class IngredientController extends AbstractController
 
     return $this->redirectToRoute('ingredient.index');
  }
+
+   
 }
