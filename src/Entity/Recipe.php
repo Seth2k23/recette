@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping\PrePersist;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity; //Obligatoire pour lunicité
 use Symfony\Component\Validator\Constraints as Assert;   //Obligatoire pour les contrainte
 
+
 #[UniqueEntity('name')]     //Pour que le nom soit unique
 #[ORM\HasLifecycleCallbacks]  //pour les mises à  jours
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
